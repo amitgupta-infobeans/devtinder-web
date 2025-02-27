@@ -11,5 +11,25 @@
     npx tailwindcss init -p
 7) install daisyUI as a tailwind CSS plugin     
     npm i -D daisyui@latest
-
 8) Add navbar component from daisyUI, also add themes.
+
+
+9) Create a seprate NavBar Component.
+10) Now install react-router.
+    npm i react-router-dom
+11) add BrowserRouter in App.jsx and set Routes.
+    Body
+        NavBar
+        Route('/'): HomePage
+        Route('/login') : login Page
+        Route('/connection'): Connection Page
+        Route('/profile'):  Profile Page.
+        Footer
+12) Create an Outlet in your Body Compnent.
+13) Add Footer (get Footer component from daisyUI.)
+
+
+
+
+
+
