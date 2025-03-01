@@ -3,17 +3,22 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { removeUser } from "../utils/userSlice";
-
+import { BASE_URL } from "../utils/constant";
 const NavBar = () => {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    const logoutUser = await axios.post("http://localhost:7777/api/logout");
-    console.log(logoutUser);
-    dispatch(removeUser());
-    navigate("/login");
+    try {
+      await axios.post(BASE_URL + "/logout", {}, {
+        withCredentials: true,
+      });
+      dispatch(removeUser());
+      navigate("/login");
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <div className="navbar bg-base-300">
