@@ -70,4 +70,4 @@
 23) setup toastify message (ref:https://www.npmjs.com/package/react-toastify?activeTab=readme)
     npm i --save react-toastify
 
-
+24) added condition if user is logged in then he can access profile page.
