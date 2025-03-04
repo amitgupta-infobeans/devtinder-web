@@ -7,10 +7,12 @@ import { addUser } from "../utils/userSlice";
 import { toast } from "react-toastify";
 
 export const useHandleLoginSignUp = () => {
-  const [email, setEmail] = useState("ram@gg.com");
-  const [password, setPassword] = useState("ram123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [firstName, setfirstName] = useState("");
   const [lastName, setlastName] = useState("");
+  const [fromSignUp, setFromSignUp] = useState(false);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
@@ -25,7 +27,7 @@ export const useHandleLoginSignUp = () => {
         }
       );
       dispatch(addUser(res.data.data));
-      navigate("/feed");
+      fromSignUp ? navigate("/profile") : navigate("/feed");
     } catch (err) {
       toast.error(err?.response?.data?.message);
     }
@@ -34,14 +36,16 @@ export const useHandleLoginSignUp = () => {
   const handleSingUp = async () => {
     try {
       const res = await axios.post(
-        BASE_URL+"/signup",
+        BASE_URL + "/signup",
         { email, password, firstName, lastName },
         {
           withCredentials: true, // this is for cookies. It will allow to set Cookies in browser.
         }
       );
       dispatch(addUser(res.data.data));
-      navigate("/profile");
+      setIsLogin((v) => !v);
+      setFromSignUp((v) => !v);
+      toast.success(res.data.message);
     } catch (err) {
       toast.error(err?.response?.data?.message);
     }
