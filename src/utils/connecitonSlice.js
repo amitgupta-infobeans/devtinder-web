@@ -4,17 +4,13 @@ const connectionSlice = createSlice({
   name: "fetchConnections",
   initialState: null,
   reducers: {
-    addConnections: (state, action) => {
-      state =  action.payload;
-      return state;
+    addConnections: (state, action) => action.payload,
+    upateConnections: (state, action) => {
+      state = [...state, ...action.payload];
     },
-    upateConnections:(state,action)=>{
-      state = [...state, ...action.payload]
-      return state;
-    }
   },
 });
 
-export const { addConnections,upateConnections } = connectionSlice.actions;
+export const { addConnections, upateConnections } = connectionSlice.actions;
 
 export default connectionSlice.reducer;

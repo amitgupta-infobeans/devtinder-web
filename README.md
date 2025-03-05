@@ -71,3 +71,7 @@
     npm i --save react-toastify
 
 24) added condition if user is logged in then he can access profile page.
+
+25) Now call the api one by one for Feed, Connection (recieved request), Review incomming request, accept or reject the request. If accept then show the user in connection section.
+
+26) 

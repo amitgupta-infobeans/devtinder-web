@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 
-export const useChangePassword = ({ user }) => {
+export const useChangePassword = () => {
   const [currentpassword, setCurrentPassword] = useState("");
   const [newpassword, setNewPassword] = useState("");
   const [matchPassword, setMatchPassword] = useState("");

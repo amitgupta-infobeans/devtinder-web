@@ -4,15 +4,10 @@ const reviewRequestSlice = createSlice({
   name: "reviewRequest",
   initialState: null,
   reducers: {
-    updateReview: (state, action) => {
-      return state.filter((v) => v._id !== action.payload);
-    },
-    addReviews: (state, action) => {
-      return action.payload;
-    },
-    emptyReview: (state, action) => {
-      return null;
-    },
+    updateReview: (state, action) =>
+      state.filter((v) => v._id !== action.payload),
+    addReviews: (state, action) => action.payload,
+    emptyReview: (state, action) => null,
   },
 });
 export const { addReviews, updateReview, emptyReview } =

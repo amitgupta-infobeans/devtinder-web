@@ -5,7 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { removeUser } from "../utils/userSlice";
 import { emptyFeed } from "../utils/feedSlice";
 import { emptyReview } from "../utils/reviewRequestSlice";
-import { BASE_URL } from "../utils/constant";
+import { BASE_URL} from "../utils/constant";
+
 const NavBar = () => {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
@@ -36,7 +37,11 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="flex-none gap-2">
-        {user && <p>Welcome {user?.firstName}</p>}
+        {user && (
+          <p>
+            Welcome {user?.firstName} {user?.lastName}
+          </p>
+        )}
 
         <div className="dropdown dropdown-end mx-5">
           <div
@@ -47,11 +52,7 @@ const NavBar = () => {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src={
-                  user && user.photoUrl
-                    ? user.photoUrl
-                    : "https://www.ihna.edu.au/blog/wp-content/uploads/2022/10/user-dummy.png"
-                }
+                src={user && user.photoUrl ? user.photoUrl : "./default-user.png"}
               />
             </div>
           </div>

@@ -23,7 +23,7 @@ const Feed = () => {
     if (!loadMore && feed?.length) return;
     try {
       let apiUrl = BASE_URL + "/user/feed?page=" + offsetFeed;
-
+ console.log(apiUrl)
       const resp = await axios.get(apiUrl, {
         withCredentials: true,
       });
@@ -42,6 +42,7 @@ const Feed = () => {
       if (e?.response?.data?.message === 401) {
         navigate("/login");
       } else {
+        console.log(e?.response?.data)
         toast.error(e?.response?.data?.message);
       }
     }

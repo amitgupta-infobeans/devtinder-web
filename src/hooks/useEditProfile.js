@@ -30,7 +30,6 @@ export const useEditProfile = (user) => {
       toast.success(res.data.message);
     } catch (err) {
       toast.error(err?.response?.data?.message);
-      console.log(err?.response?.data)
       if (err?.response?.data?.status === 401) {
         return navigate("/login");
       }

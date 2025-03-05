@@ -1,10 +1,8 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import { useChangePassword } from "../hooks/useChangePassword";
-import { useSelector } from "react-redux";
 
 const Settings = () => {
-  const user = useSelector((store) => store.user);
   const {
     newpassword,
     setNewPassword,
@@ -13,7 +11,7 @@ const Settings = () => {
     currentpassword,
     setCurrentPassword,
     updatePassword,
-  } = useChangePassword(user);
+  } = useChangePassword();
   return (
     <div className="flex justify-center my-10">
       <div className="flex justify-center mx-5">

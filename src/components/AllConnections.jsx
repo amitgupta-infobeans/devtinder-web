@@ -1,12 +1,9 @@
 import React from "react";
 import AcceptRejectCard from "./AcceptRejectCard";
 import { ToastContainer } from "react-toastify";
-import { useSelector } from "react-redux";
 import { useFetchAllConnection } from "../hooks/useFetchAllConnection";
 
 const AllConnections = () => {
-  // const connectionsData = useSelector((store) => store.fetchConnections);
-  // console.log(connectionsData);
   const { connectionsData } = useFetchAllConnection();
 
   return (

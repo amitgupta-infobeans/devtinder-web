@@ -40,13 +40,13 @@ const FeedCards = ({
   };
   return (
     <>
-      <div className="carousel-item h-full relative">
+      <div className="carousel-item h-[40rem] relative">
         <img
-          className="mb-5 "
+          className="mb-2"
           src={
             photoUrl
               ? photoUrl
-              : "https://www.ihna.edu.au/blog/wp-content/uploads/2022/10/user-dummy.png"
+              : "./default-user.png"
           }
         />
         <div className="absolute bottom-10 flex w-[40rem]  justify-between p-2 items-center">
@@ -56,12 +56,12 @@ const FeedCards = ({
           >
             Ignore
           </button>
-          <span className="text-orange-950 text-2xl p-2 flex flex-col justify-center items-center">
+          <span className="text-orange-800 bg-gray-300 font-extrabold text-2xl p-2 flex flex-col justify-center items-center">
             <span>
               {firstName.toUpperCase()} {lastName.toUpperCase()}
             </span>
             <span>
-              {age} {gender.toUpperCase()}
+              {age} {gender?.toUpperCase()}
             </span>
           </span>
           <button
